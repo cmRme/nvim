@@ -1,7 +1,7 @@
-local cmp = require("cmp")
-local luasnip = require("luasnip")
+local cmp = require("cmp")                                 -- подключает плагин cmp (автодополнение)
+local luasnip = require("luasnip")                         -- подключает плагин luasnip (сниппеты)
 
-require("luasnip.loaders.from_vscode").lazy_load()
+require("luasnip.loaders.from_vscode").lazy_load()         -- лениво загружает vscode-snippets
 
 cmp.setup({
   snippet = {
