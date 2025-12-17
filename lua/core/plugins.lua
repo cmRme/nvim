@@ -1,34 +1,69 @@
 local lazy = require("lazy")
 lazy.setup({
-  "nvim-tree/nvim-tree.lua",
-  "nvim-tree/nvim-web-devicons",
-  "nvim-telescope/telescope.nvim",
-  "nvim-lua/plenary.nvim",
+  -- File tree
+  {
+    "nvim-tree/nvim-tree.lua",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+  },
+
+  -- Telescope
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+  },
+
+  -- Git
   "lewis6991/gitsigns.nvim",
+
+  -- Buffers
   "akinsho/bufferline.nvim",
+
+  -- Terminal
   "akinsho/toggleterm.nvim",
+
+  -- LSP
   "neovim/nvim-lspconfig",
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
+
   {
     "nvimtools/none-ls.nvim",
     dependencies = {
       "nvimtools/none-ls-extras.nvim",
     },
   },
-  "hrsh7th/nvim-cmp",
-  "hrsh7th/cmp-nvim-lsp",
-  "L3MON4D3/LuaSnip",
-  "saadparwaiz1/cmp_luasnip",
   "glepnir/lspsaga.nvim",
+
+  -- Completion
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      "saadparwaiz1/cmp_luasnip",
+    },
+  },
+
+  --Snippets
+  {
+    "L3MON4D3/LuaSnip",
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+    },
+  },
+
   -- "folke/which-key.nvim",
-  "saadparwaiz1/cmp_luasnip",
-  "rafamadriz/friendly-snippets",
-  -- Доп. UI:
+  
+  -- UI:
   "nvim-lualine/lualine.nvim",
   "lukas-reineke/indent-blankline.nvim",
   "windwp/nvim-ts-autotag",  -- авто-теги в HTML/JSX
-  "nvim-lualine/lualine.nvim",
-  -- Цветовые схемы:
-  "folke/tokyonight.nvim", "ellisonleao/gruvbox.nvim", "catppuccin/nvim",
+  
+  -- Colorscheme:
+  "folke/tokyonight.nvim", 
+  "ellisonleao/gruvbox.nvim", 
+  "catppuccin/nvim",
 })
