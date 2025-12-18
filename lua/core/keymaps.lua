@@ -13,11 +13,6 @@ keymap("n", "<Tab>", ":BufferLineCycleNext<CR>", opts)
 keymap("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", opts)
 keymap("n", "<C-l>", ":BufferLineCloseOthers<CR>", opts)
 
-keymap("n", "<leader>gs", ":Gitsigns toggle_signs<CR>", opts)
-keymap("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", opts)
-keymap("n", "<leader>gr", ":Gitsigns reset_hunk<CR>", opts)
-keymap("n", "<leader>gb", ":Gitsigns blame_line<CR>", opts)
-
 keymap("n", "<leader>tt", ":ToggleTerm<CR>", opts)
 keymap("t", "<Esc>", [[<C-\><C-n>]], opts)
 
