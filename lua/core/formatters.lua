@@ -60,7 +60,7 @@ conform.setup({
 		end
 
 		return {
-			timeout_ms = 2000,
+			timeout_ms = 20000,
 			lsp_fallback = true, -- если не найден внешний форматтер, попробовать LSP
 			async = false,
 		}
