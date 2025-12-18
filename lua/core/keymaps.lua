@@ -23,23 +23,3 @@ keymap("t", "<Esc>", [[<C-\><C-n>]], opts)
 
 keymap("i", "jk", "<Esc>", { noremap = true })
 keymap("n", "<leader>bd", ":bdelete<CR>", opts)
-
--- следующая диагностика
-keymap("n", "]d", vim.diagnostic.goto_next, {
-	desc = "Next diagnostic",
-})
-
--- предыдущая диагностика
-keymap("n", "[d", vim.diagnostic.goto_prev, {
-	desc = "Prev diagnostic",
-})
-
--- показать сообщение об ошибке под курсором
-keymap("n", "<leader>e", vim.diagnostic.open_float, {
-	desc = "Show diagnostic message",
-})
-
--- code actions (ESLint: fix / disable rule / quick fix)
-keymap({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {
-	desc = "Code actions (lint fixes)",
-})
