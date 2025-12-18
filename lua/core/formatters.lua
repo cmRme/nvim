@@ -6,7 +6,7 @@
 
 local ok, conform = pcall(require, "conform")
 if not ok then
-  return
+	return
 end
 
 -- Важно: чтобы Neovim видел бинарники Mason (…/nvim-data/mason/bin)
@@ -14,67 +14,62 @@ end
 vim.env.PATH = vim.fn.stdpath("data") .. "/mason/bin:" .. (vim.env.PATH or "")
 
 conform.setup({
-  -- Форматтеры по filetype
-  formatters_by_ft = {
-    -- Lua (Neovim config)
-    lua = { "stylua" },
+	-- Форматтеры по filetype
+	formatters_by_ft = {
+		-- Lua (Neovim config)
+		lua = { "stylua" },
 
-    -- Web
-    javascript = { "prettier" },
-    typescript = { "prettier" },
-    javascriptreact = { "prettier" },
-    typescriptreact = { "prettier" },
-    html = { "prettier" },
-    css = { "prettier" },
-    scss = { "prettier" },
-    json = { "prettier" },
-    jsonc = { "prettier" },
-    yaml = { "prettier" },
-    markdown = { "prettier" },
+		-- Web
+		javascript = { "prettier" },
+		typescript = { "prettier" },
+		javascriptreact = { "prettier" },
+		typescriptreact = { "prettier" },
+		html = { "prettier" },
+		css = { "prettier" },
+		scss = { "prettier" },
+		json = { "prettier" },
+		jsonc = { "prettier" },
+		yaml = { "prettier" },
+		markdown = { "prettier" },
 
-    -- Python
-    python = { "isort", "black" },
+		-- Python
+		python = { "isort", "black" },
+	},
 
-    -- Go / Rust:
-    -- Если используешь системные gofmt/rustfmt — можно раскомментировать:
-    -- go = { "gofmt" },
-    -- rust = { "rustfmt" },
-  },
+	-- Настройка конкретных форматтеров (опционально)
+	-- Пример: prettier с prefer_local позволит использовать node_modules/.bin/prettier, если он есть,
+	-- иначе — fallback на глобальный (в т.ч. mason).
+	formatters = {
+		prettier = {
+			-- Если хочешь строго Mason-prettier, убери prefer_local
+			prefer_local = "node_modules/.bin",
+		},
+	},
 
-  -- Настройка конкретных форматтеров (опционально)
-  -- Пример: prettier с prefer_local позволит использовать node_modules/.bin/prettier, если он есть,
-  -- иначе — fallback на глобальный (в т.ч. mason).
-  formatters = {
-    prettier = {
-      -- Если хочешь строго Mason-prettier, убери prefer_local
-      prefer_local = "node_modules/.bin",
-    },
-  },
+	-- Автоформат при сохранении
+	format_on_save = function(bufnr)
+		-- Можно отключать формат on save для отдельных файлов/типов
+		local ft = vim.bo[bufnr].filetype
+		local disable_ft = {
+			-- пример:
+			-- c = true,
+			-- cpp = true,
+		}
+		if disable_ft[ft] then
+			return
+		end
 
-  -- Автоформат при сохранении
-  format_on_save = function(bufnr)
-    -- Можно отключать формат on save для отдельных файлов/типов
-    local ft = vim.bo[bufnr].filetype
-    local disable_ft = {
-      -- пример:
-      -- c = true,
-      -- cpp = true,
-    }
-    if disable_ft[ft] then
-      return
-    end
-
-    return {
-      timeout_ms = 2000,
-      lsp_fallback = true, -- если не найден внешний форматтер, попробовать LSP
-      async = false,
-    }
-  end,
+		return {
+			timeout_ms = 2000,
+			lsp_fallback = true, -- если не найден внешний форматтер, попробовать LSP
+			async = false,
+		}
+	end,
 })
 
 -- (Опционально) Команда для ручного форматирования
 vim.api.nvim_create_user_command("Format", function()
-  conform.format({ lsp_fallback = true, timeout_ms = 2000 })
+	conform.format({ lsp_fallback = true, timeout_ms = 2000 })
 end, { desc = "Format current buffer (Conform)" })
 
 -- Примечание по согласованности с LSP:
