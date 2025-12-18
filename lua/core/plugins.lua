@@ -102,12 +102,13 @@ lazy.setup({
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
+		cmd = { "TSUpdate", "TSUpdateSync", "TSInstall", "TSUninstall" },
 		event = { "BufReadPost", "BufNewFile" },
 		config = function()
-			require("nvim-treesitter.configs").setup({
+			require("nvim-treesitter.config").setup({
 				highlight = { enable = true },
 				indent = { enable = true },
-				ensure_installed = { "lua", "python", "javascript", "typescript", "html", "css", "go", "rust" },
+				ensure_installed = { "lua", "python", "javascript", "typescript", "html", "css" },
 			})
 		end,
 	},
