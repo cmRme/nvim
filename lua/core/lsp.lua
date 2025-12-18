@@ -49,10 +49,10 @@ local on_attach = function(client, bufnr)
 	local opts = { buffer = bufnr, noremap = true, silent = true } -- набор опций для LSP-кеймапов
 
 	-- Навигация
-	vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-	vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-	vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+	vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts) -- go to definition
+	vim.keymap.set("n", "K", vim.lsp.buf.hover, opts) -- hover (описание функций и типов)
+	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts) -- Go to Implementation
+	vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts) -- подсказка аргументов
 
 	-- Рефакторинг
 	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
