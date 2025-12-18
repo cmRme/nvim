@@ -45,7 +45,7 @@ lazy.setup({
 		"akinsho/toggleterm.nvim",
 		cmd = { "ToggleTerm", "TermExec" },
 		config = function()
-			require = "plugins.toggleterm"
+			require("plugins.toggleterm")
 		end,
 	},
 
