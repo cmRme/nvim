@@ -78,15 +78,6 @@ lazy.setup({
 		},
 	},
 
-	-- laspsaga
-	{
-		"glepnir/lspsaga.nvim",
-		event = "LspAttach",
-		config = function()
-			require("plugins.lspsaga")
-		end,
-	},
-
 	-- Statusline
 	{
 		"nvim-lualine/lualine.nvim",
