@@ -76,7 +76,7 @@ dotfiles/
 ```bash
 # Клонировать конфиг
 mkdir -p ~/.config/nvim && cd ~/.config/nvim
-git clone https://github.com/cmRme/nvim.git ~/config/nvim
+git clone https://github.com/cmRme/nvim.git ~/.config/nvim
 
 # Открываем nvim — Lazy установит плагины
 nvim .
