@@ -55,7 +55,11 @@
 Перед использованием необходимо установить следующие зависимости:
 
 ```bash
+# on Mac
 brew install neovim git curl ripgrep fd lua
+
+# on Linux
+sudo apt install neovim git curl ripgrep fd-find luaX.X
 ```
 
 ## 📁 Структура проекта
